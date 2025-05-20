@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  title: Leave Balance
+  version: 1.0.0
+  description: APIs for Leave Balance
+paths:
+  /leaveBalance:
+    get:
+      summary: API to get Employee Leave Balance
+      description: API to get Employee Leave Balance
+      operationId: employeeLeaveBalance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                empID:
+                  type: number
+                  description: Employee ID number
+              required:
+                - empID
+      responses:
+        "200":
+          description: Return Leave Balance
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  leaveBalance:
+                    type: number
+                    description: Your leave balance
+                  employeeName:
+                    type: string
+                    description: Employee Name
+        "400":
+          description: Bad request. One or more required fields are missing or invalid.
